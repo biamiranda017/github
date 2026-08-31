@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contador de Cliques</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family: Arial, sans-serif;
+
+            background: linear-gradient(135deg, #ffd7b5, #ff8fb3);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 450px;
+
+            background-color: white;
+
+            padding: 45px 30px;
+
+            border-radius: 20px;
+
+            text-align: center;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #5a3a26;
+            margin-bottom: 15px;
+        }
+
+        .contador {
+            font-size: 70px;
+
+            font-weight: bold;
+
+            color: #ff8fb3;
+
+            margin: 25px 0;
+        }
+
+        button {
+            padding: 14px 30px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background-color: #ff8fb3;
+
+            color: white;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e8759a;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <h1>Contador de Cliques</h1>
+
+        <p>Clique no botão para aumentar a contagem.</p>
+
+        <div id="contador" class="contador">
+            0
+        </div>
+
+        <button id="botao">
+            Clique aqui
+        </button>
+
+    </main>
+
+    <script>
+
+        let cliques = 0;
+
+        const contador = document.getElementById("contador");
+        const botao = document.getElementById("botao");
+
+        botao.addEventListener("click", function () {
+
+            cliques++;
+
+            contador.textContent = cliques;
+
+        });
+
+    </script>
+
+</body>
+
+</html>
