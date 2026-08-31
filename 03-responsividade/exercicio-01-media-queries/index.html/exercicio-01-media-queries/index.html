@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Layout Responsivo</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff0f5;
+        }
+
+        header {
+            background-color: #8b5e3c;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            margin-bottom: 0.5rem;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 2rem auto;
+        }
+
+        .cards {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 1.5rem;
+        }
+
+        .card {
+            background-color: white;
+
+            padding: 2rem;
+
+            border-radius: 1rem;
+
+            text-align: center;
+
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+        }
+
+        .card h2 {
+            color: #5a3a26;
+
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: #666;
+
+            line-height: 1.5;
+        }
+
+        @media (max-width: 800px) {
+
+            .cards {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+        @media (max-width: 550px) {
+
+            header {
+                padding: 1.5rem;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Layout Responsivo</h1>
+
+        <p>Adaptação para diferentes tamanhos de tela</p>
+
+    </header>
+
+
+    <main class="container">
+
+        <section class="cards">
+
+            <article class="card">
+
+                <h2>Desktop</h2>
+
+                <p>
+                    Em telas maiores, os conteúdos aparecem
+                    organizados em três colunas.
+                </p>
+
+            </article>
+
+
+            <article class="card">
+
+                <h2>Tablet</h2>
+
+                <p>
+                    Em telas médias, o layout passa para
+                    duas colunas.
+                </p>
+
+            </article>
+
+
+            <article class="card">
+
+                <h2>Celular</h2>
+
+                <p>
+                    Em telas pequenas, os conteúdos ficam
+                    organizados em uma única coluna.
+                </p>
+
+            </article>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
