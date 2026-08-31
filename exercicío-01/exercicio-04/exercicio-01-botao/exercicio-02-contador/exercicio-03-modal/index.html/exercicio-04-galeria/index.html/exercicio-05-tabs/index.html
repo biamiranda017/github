@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sistema de Tabs</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family: Arial, sans-serif;
+
+            background: linear-gradient(
+                135deg,
+                #ffd7b5,
+                #ff8fb3
+            );
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+
+            max-width: 700px;
+
+            background-color: white;
+
+            padding: 35px;
+
+            border-radius: 18px;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+
+            color: #5a3a26;
+
+            margin-bottom: 30px;
+        }
+
+        .tabs {
+            display: flex;
+
+            gap: 5px;
+
+            border-bottom: 2px solid #eee;
+
+            margin-bottom: 25px;
+        }
+
+        .tab {
+            flex: 1;
+
+            padding: 14px 10px;
+
+            border: none;
+
+            background-color: #f5f5f5;
+
+            color: #555;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            border-radius: 8px 8px 0 0;
+        }
+
+        .tab:hover {
+            background-color: #ffe0e9;
+        }
+
+        .tab.ativo {
+            background-color: #ff8fb3;
+
+            color: white;
+        }
+
+        .conteudo {
+            display: none;
+
+            animation: aparecer 0.3s ease;
+        }
+
+        .conteudo.ativo {
+            display: block;
+        }
+
+        .conteudo h2 {
+            color: #5a3a26;
+
+            margin-bottom: 12px;
+        }
+
+        .conteudo p {
+            color: #666;
+
+            line-height: 1.6;
+        }
+
+        @keyframes aparecer {
+
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        @media (max-width: 500px) {
+
+            .container {
+                padding: 25px 20px;
+            }
+
+            .tabs {
+                flex-direction: column;
+
+                border-bottom: none;
+            }
+
+            .tab {
+                border-radius: 8px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <h1>Conheça nosso conteúdo</h1>
+
+
+        <div class="tabs">
+
+            <button class="tab ativo" data-tab="sobre">
+                Sobre
+            </button>
+
+            <button class="tab" data-tab="servicos">
+                Serviços
+            </button>
+
+            <button class="tab" data-tab="contato">
+                Contato
+            </button>
+
+        </div>
+
+
+        <section id="sobre" class="conteudo ativo">
+
+            <h2>Sobre nós</h2>
+
+            <p>
+                Esta área apresenta informações sobre o projeto.
+                O conteúdo é alterado através de um sistema de abas
+                desenvolvido com JavaScript.
+            </p>
+
+        </section>
+
+
+        <section id="servicos" class="conteudo">
+
+            <h2>Serviços</h2>
+
+            <p>
+                Aqui podem ser apresentados diferentes serviços,
+                produtos ou funcionalidades de uma aplicação web.
+            </p>
+
+        </section>
+
+
+        <section id="contato" class="conteudo">
+
+            <h2>Contato</h2>
+
+            <p>
+                Nesta aba podem ser colocadas informações de contato,
+                como e-mail, telefone ou redes sociais.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        const tabs = document.querySelectorAll(".tab");
+
+        const conteudos = document.querySelectorAll(".conteudo");
+
+
+        tabs.forEach(function (tab) {
+
+            tab.addEventListener("click", function () {
+
+                tabs.forEach(function (item) {
+                    item.classList.remove("ativo");
+                });
+
+                conteudos.forEach(function (conteudo) {
+                    conteudo.classList.remove("ativo");
+                });
+
+
+                tab.classList.add("ativo");
+
+                const id = tab.getAttribute("data-tab");
+
+                document.getElementById(id).classList.add("ativo");
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>
