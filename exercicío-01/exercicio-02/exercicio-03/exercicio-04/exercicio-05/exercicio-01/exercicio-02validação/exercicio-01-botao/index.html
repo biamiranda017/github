@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Botão Interativo</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+
+            background: linear-gradient(135deg, #ffd7b5, #ff8fb3);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: white;
+
+            width: 90%;
+            max-width: 500px;
+
+            padding: 50px 30px;
+
+            border-radius: 20px;
+
+            text-align: center;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #5a3a26;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        #botao {
+            padding: 15px 35px;
+
+            border: none;
+            border-radius: 10px;
+
+            background-color: #ff8fb3;
+            color: white;
+
+            font-size: 18px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <h1>Botão Interativo</h1>
+
+        <p>
+            Passe o mouse sobre o botão para mudar sua cor.
+        </p>
+
+        <button id="botao">
+            Passe o mouse aqui
+        </button>
+
+    </main>
+
+    <script>
+
+        const botao = document.getElementById("botao");
+
+        botao.addEventListener("mouseover", function () {
+            botao.style.backgroundColor = "#8b5e3c";
+        });
+
+        botao.addEventListener("mouseout", function () {
+            botao.style.backgroundColor = "#ff8fb3";
+        });
+
+    </script>
+
+</body>
+
+</html>
