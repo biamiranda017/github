@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 3 - Login</title>
+</head>
+<body>
+
+    <h1>Login</h1>
+
+    <input type="text" id="usuario" placeholder="Usuário">
+    <input type="password" id="senha" placeholder="Senha">
+
+    <button onclick="login()">Entrar</button>
+
+    <p id="mensagem"></p>
+
+    <script>
+        function login() {
+            const usuario = document.getElementById("usuario").value;
+            const senha = document.getElementById("senha").value;
+
+            fetch("https://jsonplaceholder.typicode.com/users")
+                .then(response => response.json())
+                .then(usuarios => {
+
+                    const usuarioEncontrado = usuarios.find(
+                        pessoa => pessoa.username.toLowerCase() === usuario.toLowerCase()
+                    );
+
+                    if (usuarioEncontrado && senha === "1234") {
+                        document.getElementById("mensagem").textContent =
+                            "Login realizado com sucesso!";
+                    } else {
+                        document.getElementById("mensagem").textContent =
+                            "Usuário ou senha inválidos.";
+                    }
+                })
+                .catch(error => {
+                    console.log("Erro:", error);
+                });
+        }
+    </script>
+
+</body>
+</html>
