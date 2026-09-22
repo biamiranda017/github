@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 5 - Previsão do Tempo</title>
+</head>
+<body>
+
+    <h1>Previsão do tempo</h1>
+
+    <button onclick="buscarClima()">Ver previsão</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        function buscarClima() {
+
+            navigator.geolocation.getCurrentPosition(
+                position => {
+
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+
+                    fetch(
+                        `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m`
+                    )
+                        .then(response => response.json())
+                        .then(data => {
+
+                            const temperatura =
+                                data.current.temperature_2m;
+
+                            document.getElementById("resultado").innerHTML = `
+                                <h2>Clima atual</h2>
+                                <p>Temperatura: ${temperatura}°C</p>
+                            `;
+                        })
+                        .catch(error => {
+                            console.log("Erro:", error);
+                        });
+                },
+
+                error => {
+                    document.getElementById("resultado").textContent =
+                        "Não foi possível obter sua localização.";
+                }
+            );
+        }
+    </script>
+
+</body>
+</html>
